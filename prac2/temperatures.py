@@ -1,8 +1,3 @@
-"""
-CP1404/CP5632 - Practical
-Refactored temperature conversion using SRP
-"""
-
 def celsius_to_fahrenheit(celsius):
     return celsius * 9.0 / 5 + 32
 
