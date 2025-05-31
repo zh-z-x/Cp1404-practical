@@ -1,8 +1,17 @@
 MIN_LENGTH = 8
 
-password = input("Enter your password: ")
-while len(password) < MIN_LENGTH:
-    print("Password too short")
-    password = input("Enter your password: ")
+def main():
+    password = get_password()
+    print_asterisks(password)
 
-print("*" * len(password))
+def get_password():
+    password = input("Enter password: ")
+    while len(password) < MIN_LENGTH:
+        print("Password too short")
+        password = input("Enter password: ")
+    return password
+
+def print_asterisks(password):
+    print("*" * len(password))
+
+main()
