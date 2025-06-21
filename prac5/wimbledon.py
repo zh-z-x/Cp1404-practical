@@ -31,3 +31,21 @@ def get_countries(data):
         country = row[1]
         countries.add(country)
     return sorted(countries)
+
+def main():
+    filename = "wimbledon.csv"
+    data = read_wimbledon_data(filename)
+
+    champions_counts = get_champions_counts(data)
+    countries = get_countries(data)
+
+    print("Wimbledon Champions:")
+    for champion, count in sorted(champions_counts.items()):
+        print(f"{champion} {count}")
+
+    print()
+    print(f"These {len(countries)} countries have won Wimbledon:")
+    print(", ".join(countries))
+
+if __name__ == "__main__":
+    main()
