@@ -15,3 +15,11 @@ def read_wimbledon_data(filename):
         for row in reader:
             data.append(row)
     return data
+
+def get_champions_counts(data):
+    # Return a dictionary with champion names as keys and their win counts as values.
+    counts = {}
+    for row in data:
+        champion = row[2]
+        counts[champion] = counts.get(champion, 0) + 1
+    return counts
