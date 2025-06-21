@@ -23,3 +23,11 @@ def get_champions_counts(data):
         champion = row[2]
         counts[champion] = counts.get(champion, 0) + 1
     return counts
+
+def get_countries(data):
+    # Return a sorted list of unique champion countries.
+    countries = set()
+    for row in data:
+        country = row[1]
+        countries.add(country)
+    return sorted(countries)
