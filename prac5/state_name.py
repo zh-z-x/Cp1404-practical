@@ -14,3 +14,6 @@ CODE_TO_NAME = {
     "TAS": "Tasmania",
     "SA": "South Australia"
 }
+# Print all state codes and names using aligned formatting
+for code, name in CODE_TO_NAME.items():
+    print(f"{code:3} is {name}")
