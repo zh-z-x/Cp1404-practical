@@ -3,7 +3,7 @@ guitars.py
 
 Estimated time: 15 minutes
 
-Actual time:  minutes
+Actual time: 14 minutes
 """
 from guitar import Guitar
 
