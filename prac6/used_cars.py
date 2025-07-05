@@ -4,7 +4,7 @@ Note that the import has a folder (module) in it.
 This is why we name our folders with no spaces or capitals, as valid module names.
 """
 
-from prac_06.car import Car
+from prac6.car import Car
 
 
 def main():
@@ -18,5 +18,11 @@ def main():
 
     lamborghini.add_fuel(20)
 
+    print(f"Lamborghini has fuel: {lamborghini.fuel}")
+
+    distance_driven = lamborghini.drive(115)
+    print(f"Lamborghini drove {distance_driven}km")
+
+    print(lamborghini)
 
 main()
