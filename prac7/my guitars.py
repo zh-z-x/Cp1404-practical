@@ -55,3 +55,9 @@ def add_guitar():
     else:
         print("Invalid input. Skipping.")
         return None
+
+def save_guitars(filename, guitars):
+    out_file = open(filename, 'w')
+    for guitar in guitars:
+        out_file.write(f"{guitar.name},{guitar.year},{guitar.cost}\n")
+    out_file.close()
