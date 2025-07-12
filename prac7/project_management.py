@@ -93,3 +93,15 @@ def is_valid_number(value):
     if len(parts) > 2:
         return False
     return all(part.isdigit() for part in parts)
+
+
+def display_projects(projects):
+    incomplete = sorted([p for p in projects if not p.is_completed()], key=lambda x: x.priority)
+    completed = sorted([p for p in projects if p.is_completed()], key=lambda x: x.priority)
+
+    print("Incomplete projects:")
+    for project in incomplete:
+        print(f"  {project}")
+    print("Completed projects:")
+    for project in completed:
+        print(f"  {project}")
