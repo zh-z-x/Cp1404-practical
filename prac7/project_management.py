@@ -146,3 +146,29 @@ def add_project(projects):
     completion = int(completion)
     priority = int(priority)
     projects.append(Project(name, date, priority, cost, completion))
+
+def update_project(projects):
+    for i, project in enumerate(projects):
+        print(f"{i} {project}")
+    choice = input("Project choice: ")
+
+    if not choice.isdigit() or not (0 <= int(choice) < len(projects)):
+        print("Invalid project choice.")
+        return
+
+    project = projects[int(choice)]
+    print(project)
+    completion = input("New Percentage: ")
+    priority = input("New Priority: ")
+
+    if completion and not is_valid_number(completion):
+        print("Invalid completion percentage.")
+        return
+    if priority and not is_valid_number(priority):
+        print("Invalid priority.")
+        return
+
+    project.update(completion=completion or None, priority=priority or None)
+
+if __name__ == "__main__":
+    main()
