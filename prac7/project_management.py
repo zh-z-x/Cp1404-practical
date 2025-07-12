@@ -105,3 +105,16 @@ def display_projects(projects):
     print("Completed projects:")
     for project in completed:
         print(f"  {project}")
+
+
+def filter_projects_by_date(projects):
+
+    date_input = input("Show projects that start after date (dd/mm/yy): ")
+    if not is_valid_date(date_input):
+        print("Invalid date format. Please use dd/mm/yyyy.")
+        return
+
+    date = datetime.datetime.strptime(date_input, "%d/%m/%Y").date()
+    filtered = sorted([p for p in projects if p.start_date > date], key=lambda x: x.start_date)
+    for project in filtered:
+        print(f"  {project}")
