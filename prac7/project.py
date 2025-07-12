@@ -22,3 +22,10 @@ class Project:
     def is_completed(self):
 
         return self.completion == 100
+
+    def update(self, completion=None, priority=None):
+
+        if completion is not None:
+            self.completion = int(completion)
+        if priority is not None:
+            self.priority = int(priority)
