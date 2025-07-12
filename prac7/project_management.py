@@ -118,3 +118,31 @@ def filter_projects_by_date(projects):
     filtered = sorted([p for p in projects if p.start_date > date], key=lambda x: x.start_date)
     for project in filtered:
         print(f"  {project}")
+
+
+def add_project(projects):
+    print("Let's add a new project")
+    name = input("Name: ")
+    date_str = input("Start date (dd/mm/yy): ")
+    priority = input("Priority: ")
+    cost = input("Cost estimate: ")
+    completion = input("Percent complete: ")
+
+    if not name or not is_valid_date(date_str):
+        print("Invalid input. Project not added.")
+        return
+    if not priority:
+        priority = "1"
+    if not cost:
+        cost = "0.0"
+    if not completion:
+        completion = "0"
+    if not (is_valid_number(priority) and is_valid_number(cost) and is_valid_number(completion)):
+        print("Invalid input. Project not added.")
+        return
+
+    date = datetime.datetime.strptime(date_str, "%d/%m/%Y").date()
+    cost = float(cost.replace('$', '')) if '$' in cost else float(cost)
+    completion = int(completion)
+    priority = int(priority)
+    projects.append(Project(name, date, priority, cost, completion))
