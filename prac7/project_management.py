@@ -77,3 +77,11 @@ def save_projects(projects, filename):
         for project in projects:
             file.write(f"{project.name}\t{project.start_date.strftime('%d/%m/%Y')}\t"
                       f"{project.priority}\t{project.cost_estimate}\t{project.completion}\n")
+
+def is_valid_date(date_str):
+    parts = date_str.split('/')
+    if len(parts) != 3:
+        return False
+    day, month, year = parts
+    return (day.isdigit() and month.isdigit() and year.isdigit() and
+            1 <= int(day) <= 31 and 1 <= int(month) <= 12 and len(year) == 4)
