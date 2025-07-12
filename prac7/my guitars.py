@@ -15,8 +15,8 @@ def main():
     if new_guitar:
         guitars.append(new_guitar)
 
-    save_guitars(FILENAME, guitars)
-    print(f"\nSaved {len(guitars)} guitars to {FILENAME}.")
+    save_guitars("guitar.csv", guitars)
+    print(f"\nSaved {len(guitars)} guitars to guitar.csv.")
 
 def load_guitars(filename):
     guitars = []
@@ -61,3 +61,6 @@ def save_guitars(filename, guitars):
     for guitar in guitars:
         out_file.write(f"{guitar.name},{guitar.year},{guitar.cost}\n")
     out_file.close()
+
+if __name__ == "__main__":
+    main()
