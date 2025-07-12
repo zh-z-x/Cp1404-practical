@@ -85,3 +85,11 @@ def is_valid_date(date_str):
     day, month, year = parts
     return (day.isdigit() and month.isdigit() and year.isdigit() and
             1 <= int(day) <= 31 and 1 <= int(month) <= 12 and len(year) == 4)
+
+def is_valid_number(value):
+    if not value:
+        return False
+    parts = value.split('.')
+    if len(parts) > 2:
+        return False
+    return all(part.isdigit() for part in parts)
