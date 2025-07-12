@@ -8,3 +8,7 @@ class Project:
         self.priority = int(priority)
         self.cost_estimate = float(cost_estimate)
         self.completion = int(completion)
+
+    def __lt__(self, other):
+
+        return self.priority < other.priority
