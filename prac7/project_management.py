@@ -46,3 +46,27 @@ def main():
             running = False
         else:
             print("Invalid choice.")
+
+
+def load_projects(filename):
+    projects = []
+    if not os.path.exists(filename):
+        print(f"File {filename} not found.")
+        return projects
+
+    with open(filename, 'r', encoding='utf-8') as file:
+        lines = file.readlines()
+        if lines:
+            lines = lines[1:]
+            for line in lines:
+                parts = line.strip().split('\t')
+                if len(parts) == 5:
+                    name, date_str, priority, cost, completion = parts
+                    if is_valid_date(date_str):
+                        date = datetime.datetime.strptime(date_str, "%d/%m/%Y").date()
+                        if (is_valid_number(priority) and
+                                is_valid_number(cost) and
+                                is_valid_number(completion)):
+                            project = Project(name, date, priority, cost, completion)
+                            projects.append(project)
+    return projects
