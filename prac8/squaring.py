@@ -29,5 +29,8 @@ class SquareNumberApp(App):
         except ValueError:
             self.root.ids.output_label.text = "Invalid input"  # Show error message if input is invalid
 
+    def handle_clear(self):
+        self.root.ids.input_number.text = ''
+        self.root.ids.output_label.text = ''
 
 SquareNumberApp().run()
