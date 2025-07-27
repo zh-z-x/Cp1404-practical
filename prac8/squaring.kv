@@ -1,0 +1,33 @@
+BoxLayout:
+    orientation: 'vertical'
+    padding: 10
+    spacing: 10
+
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: 10
+
+    TextInput:
+        id: input_number
+        text: '7'
+        font_size: 48
+        multiline: False
+
+    Button:
+        text: 'Square'
+        # the following line specifies the function in the app class to call when the button is pressed
+        on_press: app.handle_calculate(input_number.text)
+
+    Button:
+        text: 'Clear'
+        on_press: app.handle_clear()
+
+    Label:
+        id: output_label
+        teaxt: ''
+        font_size: 36
+        color: (1, 0.75, 0.8,1)
+
+        Label:
+            text: 'Enter a number and press "Square"'
+            font_size: 24

@@ -1,0 +1,17 @@
+BoxLayout:
+    orientation: 'vertical'
+#    orientation: 'horizontal'
+    Button:
+        text: 'Clear'
+        on_press: app.handle_clear() #Added: call the clear function in the app
+    TextInput:
+        id: input_name #Added: ID to access from Python
+        text: '123'
+    Button:
+        text: 'Greet'
+        on_press: app.handle_greet() #Added: call the greet function in the app
+
+    Label:
+        id: output_label #Added: ID to change text from Python
+        text: 'Enter your name'
+        color: (1, 1, 0, 1)
